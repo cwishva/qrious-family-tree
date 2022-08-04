@@ -45,15 +45,14 @@ export default function TreeView({ data }: TreeViewProps) {
         // All people have TWO and ONLY TWO parents
         const parent1 = tree.parents[0].toString();
         const parent2 = tree.parents[1].toString();
-        const treep1 = treeData.find((t) => t.key === parent1);
-        const treep2 = treeData.find((t) => t.key === parent2);
-
-        if (treep1 && (!treep2 || (treep2 && !treep2.link))) {
-          treep1.link = getNode(parseInt(parent2));
+        const nodeParent1 = treeData.find((t) => t.key === parent1);
+        const nodeParent2 = treeData.find((t) => t.key === parent2);
+        if (nodeParent1 && (!nodeParent2 || (nodeParent2 && !nodeParent2.link))) {
+          nodeParent1.link = getNode(parseInt(parent2));
         }
 
-        if (treep2 && (!treep1 || (treep1 && !treep1.link))) {
-          treep2.link = getNode(parseInt(parent1));
+        if (nodeParent2 && (!nodeParent1 || (nodeParent1 && !nodeParent1.link))) {
+          nodeParent2.link = getNode(parseInt(parent1));
         }
       }
 
@@ -64,6 +63,7 @@ export default function TreeView({ data }: TreeViewProps) {
         children: childrens,
       };
 
+      // Mark parents with no Children
       if (childrens.length === 0) {
         node.link = {} as INode;
       }
