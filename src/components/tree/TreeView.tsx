@@ -14,7 +14,7 @@ export default function TreeView({ data }: TreeViewProps) {
   const treeContainer = useRef();
   const [treeData, setTreeData] = useState<RawNodeDatum>();
   const [translate, setTranslate] = useState({ translateX: 0, translateY: 0 });
-  const nodeSize = { x: 200, y: 80 };
+  const nodeSize = { x: 200, y: 82 };
 
   const getNode = useCallback(
     (id: number): INode | undefined => {

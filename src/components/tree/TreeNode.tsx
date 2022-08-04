@@ -56,7 +56,7 @@ function TreeNode({
                   nodeDatum.attributes?.parentOneGender as string
                 ),
                 display: "flex",
-                justifyContent: "space-evenly",
+                justifyContent: "space-evenly"
               }}
             >
               {/* Each box should contain the person’s name */}
